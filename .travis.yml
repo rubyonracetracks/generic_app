@@ -1,0 +1,8 @@
+before_script:
+  - sudo apt-get install -y bash
+  - "find /home/travis/.rvm/rubies -wholename '*default/bundler-*.gemspec' -delete"
+  - rvm @global do gem uninstall bundler -a -x -I || true
+  - gem install bundler -v '< 2'
+
+script:
+  - bash exec-test.sh 'tmp1' 'Generic App 1' '007@railstutorial.org'
