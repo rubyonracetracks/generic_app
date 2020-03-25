@@ -3,7 +3,7 @@ set -e
 
 # This script is used in the Travis environment for testing the new app.
 
-cd tmp1
+cd new_apps/tmp1
 bundle install --quiet
 rails db:migrate
 
