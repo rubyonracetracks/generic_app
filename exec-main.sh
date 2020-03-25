@@ -26,10 +26,8 @@ replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/app/views/st
 replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/config/initializers/devise.rb
 replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/test/integration/static_pages_test.rb
 
-# docker run -i -t --rm -v ${PWD}:/home/winner/neutrino rubyonracetracks/rails_neutrino_5 /home/winner/neutrino/build-rails $APP_NAME $TOGGLE_OUTLINE
-
-echo '##########################################'
-echo 'The new app has been created from scratch!'
+echo '##############################'
+echo 'Your new app has been created!'
 echo ''
 echo 'It is located at:'
 echo "$DIR_APP"
