@@ -13,23 +13,18 @@ URL=`cat $PWD/URL-APP.txt`
 
 git clone $URL $DIR_APP
 
-replace_str_in_file () {
-  STR1=$1
-  STR2=$2
-  FILENAME=$3
-  sed -i.bak "s|$STR1|$STR2|g" $FILENAME
-  rm $FILENAME.bak
-}
+# Update the email address
+STR1='somebody@rubyonracetracks.com'
+STR2=$EMAIL
+find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
-# Update email address
-replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/app/views/static_pages/contact.html.erb
-replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/config/initializers/devise.rb
-replace_str_in_file 'somebody@rubyonracetracks.com' $EMAIL $DIR_APP/test/integration/static_pages_test.rb
+# Update the title of the app
+STR1='Generic App Template'
+STR2=$APP_NAME
+find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
-# docker run -i -t --rm -v ${PWD}:/home/winner/neutrino rubyonracetracks/rails_neutrino_5 /home/winner/neutrino/build-rails $APP_NAME $TOGGLE_OUTLINE
-
-echo '##########################################'
-echo 'The new app has been created from scratch!'
+echo '##############################'
+echo 'Your new app has been created!'
 echo ''
 echo 'It is located at:'
 echo "$DIR_APP"
