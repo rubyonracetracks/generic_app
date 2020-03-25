@@ -6,3 +6,5 @@ before_script:
 
 script:
   - bash exec-test.sh 'tmp1' 'Generic App 1' '007@railstutorial.org'
+  - bash travis-after.sh
+
