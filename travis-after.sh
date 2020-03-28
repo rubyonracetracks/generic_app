@@ -4,8 +4,9 @@ set -e
 # This script is used in the Travis environment for testing the new app
 # after it is created.
 
-rvm install `cat $PWD/new_apps/tmp1/.ruby-version`
 cd $PWD/new_apps/tmp1
+
+rvm install `cat $PWD/new_apps/tmp1/.ruby-version`
 
 bundle install --quiet
 rails db:migrate
