@@ -21,3 +21,5 @@ then
   echo "FAIL: at least one instance of $orig_title remains"
   exit 1
 fi
+
+# Add test to confirm that the badges section is empty

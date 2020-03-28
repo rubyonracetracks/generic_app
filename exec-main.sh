@@ -23,6 +23,13 @@ STR1='Generic App Template'
 STR2=$APP_NAME
 find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
+# Removing the badges
+# Source:
+# https://stackoverflow.com/questions/5071901/removing-lines-between-two-patterns-not-inclusive-with-sed
+STR1='<!--- BEGIN: badges --->'
+STR2='<!--- END: badges --->'
+sed -i -n "/$STR1/{p; :a; N; /$STR2/!ba; s/.*\n//}; p" $DIR_APP/README.md
+
 echo '##############################'
 echo 'Your new app has been created!'
 echo ''
