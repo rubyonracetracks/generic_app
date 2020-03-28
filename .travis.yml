@@ -3,4 +3,4 @@ before_script:
 
 script:
   - bash exec-test.sh 'tmp1' 'Generic App 1' '007@railstutorial.org'
-  - rvm use `cat $PWD/new_apps/tmp1/.ruby-version`
+  - rvm install `cat $PWD/new_apps/tmp1/.ruby-version`
