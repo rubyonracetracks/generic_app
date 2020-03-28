@@ -6,7 +6,7 @@ set -e
 
 cd $PWD/new_apps/tmp1
 
-rvm install `cat $PWD/new_apps/tmp1/.ruby-version`
+rvm install `cat .ruby-version`
 
 bundle install --quiet
 rails db:migrate
