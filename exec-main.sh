@@ -23,6 +23,9 @@ STR1='Generic App Template'
 STR2=$APP_NAME
 find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
+# Removing .travis.yml
+rm $DIR_APP/.travis.yml
+
 # Removing the badges
 # Source:
 # https://stackoverflow.com/questions/5071901/removing-lines-between-two-patterns-not-inclusive-with-sed

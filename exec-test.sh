@@ -22,4 +22,9 @@ then
   exit 1
 fi
 
+if test -f "$PWD/new_apps/$DIR_NAME/.travis.yml"; then
+  echo 'FAIL: .travis.yml file not removed'
+fi
+
+
 # Add test to confirm that the badges section is empty
