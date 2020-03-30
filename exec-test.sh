@@ -24,7 +24,22 @@ fi
 
 if test -f "$PWD/new_apps/$DIR_NAME/.travis.yml"; then
   echo 'FAIL: .travis.yml file not removed'
+  exit 1
 fi
 
+EXP_LINE1='<!--- BEGIN: badges --->'
+EXP_LINE2='<!--- END: badges --->'
+ACTUAL_LINE1=`sed -n '1p' "$PWD/new_apps/$DIR_NAME/README.md"`
+ACTUAL_LINE2=`sed -n '2p' "$PWD/new_apps/$DIR_NAME/README.md"`
 
-# Add test to confirm that the badges section is empty
+if [ "$EXP_LINE1" != "$ACTUAL_LINE1" ];
+then
+  echo "FAIL: first line in README.md is not $EXP_LINE1"
+  exit 1
+fi
+
+if [ "$EXP_LINE2" != "$ACTUAL_LINE2" ];
+then
+  echo "FAIL: second line in README.md is not $EXP_LINE2"
+  exit 1
+fi
