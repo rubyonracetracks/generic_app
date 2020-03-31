@@ -2,7 +2,7 @@
 set -e
 
 DIR_NAME=$1
-APP_NAME=$2
+APP_TITLE=$2
 EMAIL=$3
 
 mkdir -p $PWD/new_apps
@@ -20,7 +20,7 @@ find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
 # Update the title of the app
 STR1='Generic App Template'
-STR2=$APP_NAME
+STR2=$APP_TITLE
 find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 
 # Removing .travis.yml
