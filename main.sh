@@ -19,7 +19,16 @@ echo 'If you enter a blank, an app title will be chosen for you.'
 read APP_TITLE
 
 if [ -z "$APP_TITLE" ]; then
-  APP_TITLE="Not Sure"
+  APP_TITLE='Not Sure'
+fi
+
+echo ''
+echo 'Enter the email address you wish to use as the point of contact in your app.'
+echo 'If you enter a blank, an email address will be chosen for you.'
+read EMAIL
+
+if [ -z "$EMAIL" ]; then
+  EMAIL='blackmailer@zoeysballoon.com'
 fi
 
 echo '-------------------'
@@ -30,10 +39,13 @@ echo '-------------------'
 echo 'App title:'
 echo "$APP_TITLE"
 echo ''
+echo '--------------'
+echo 'Email address:'
+echo "$EMAIL"
 
 echo ''
 echo 'Press Enter to continue.'
 read CONT
 
 mkdir -p log
-sh exec-main.sh $DIR_NAME $APP_TITLE | tee log/log-$DATE.txt
+sh exec-main.sh $DIR_NAME $APP_TITLE $EMAIL | tee log/log-$DATE.txt

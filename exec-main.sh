@@ -13,6 +13,11 @@ URL=`cat $PWD/URL-APP.txt`
 
 git clone $URL $DIR_APP
 
+wait
+
+# Necessary to avoid accidental commits to the wrong repository
+cd $DIR_APP && git remote remove origin
+
 # Update the email address
 STR1='somebody@rubyonracetracks.com'
 STR2=$EMAIL
@@ -39,3 +44,7 @@ echo ''
 echo 'It is located at:'
 echo "$DIR_APP"
 echo ''
+echo 'Enter the following commands:'
+echo "cd $DIR_APP"
+echo 'git add .'
+echo 'git commit -m "Customized by Generic App"'
