@@ -31,6 +31,9 @@ find $DIR_APP -type f -exec sed -i "s|$STR1|$STR2|g" {} +
 # Removing .travis.yml
 rm $DIR_APP/.travis.yml
 
+# Removing config/database.yml.travis
+rm $DIR_APP/config/database.yml.travis
+
 # Removing the badges
 # Source:
 # https://stackoverflow.com/questions/5071901/removing-lines-between-two-patterns-not-inclusive-with-sed
@@ -43,6 +46,9 @@ echo 'Your new app has been created!'
 echo ''
 echo 'It is located at:'
 echo "$DIR_APP"
+echo ''
+echo 'The time stamp is:'
+cat $DIR_APP/config/rails_neutrino_timestamp.txt
 echo ''
 echo 'Enter the following commands:'
 echo "cd $DIR_APP"
